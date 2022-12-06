@@ -1,0 +1,66 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "email": "laihieu1@gmail.com",
+      "username": "laihieu1",
+      "password": "laihieu1"
+    },
+    {
+      "id": 2,
+      "email": "laihieu1@gmail.com",
+      "username": "laihieu2",
+      "password": "laihieu2"
+    },
+    {
+      "id": 3,
+      "email": "laihieu1@gmail.com",
+      "username": "laihieu3",
+      "password": "laihieu3"
+    },
+    {
+      "email": "fsd@gmail.com",
+      "username": "fsdf",
+      "password": "fsd",
+      "id": 4
+    },
+    {
+      "email": "laivanhieu1999@gmail.com",
+      "username": "1999",
+      "password": "1999fd",
+      "id": 5
+    },
+    {
+      "email": "fsd",
+      "username": "fsdf",
+      "password": "fsd",
+      "id": 6
+    },
+    {
+      "email": "laivanhieu1999999@gmail.com",
+      "username": "hieulai",
+      "password": "hieulai",
+      "id": 7
+    },
+    {
+      "username": "ngn",
+      "password": "hgfh",
+      "id": 8
+    },
+    {
+      "username": "fsd",
+      "password": "fsd",
+      "id": 9
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

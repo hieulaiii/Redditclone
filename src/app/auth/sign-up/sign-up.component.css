@@ -1,0 +1,65 @@
+.register-section{
+  margin: 150px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transform: translateX(-25%);
+}
+
+.card-body{
+  padding: 8px 80px;
+
+}
+
+.card-header{
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.form-group{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.form-group label{
+  margin-right: 14px;
+}
+
+input{
+  margin-bottom: 5px;
+}
+
+.sign-up {
+  background-color: #0079D3;
+  border-color: #0079D3;
+  color: aliceblue;
+  fill: #0079D3;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  opacity: 1;
+  cursor: pointer;
+  margin-left: 140px;
+}
+
+form > span{
+  margin-left: 140px;
+  font-size: 16px;
+}
+
