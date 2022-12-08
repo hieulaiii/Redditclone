@@ -10,7 +10,11 @@
   position: relative;
   border-radius: 4px;
   padding:5px;
+
   top: 86px;
+
+  margin-top: 10px;
+
   margin-bottom: 10px;
 }
 
