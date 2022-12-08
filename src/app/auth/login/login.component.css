@@ -61,3 +61,18 @@ form > span{
   margin-left: 115px;
 }
 
+.login-failed{
+  text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 65%;
+    background-color: red;
+}
+
+.login-failed-text{
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+  color: aliceblue;
+}

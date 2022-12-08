@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
-import { SignupRequestPayload } from './SignupRequestPayload';
+import { SignupRequestPayload } from '../../service/SignupRequestPayload';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  public createForm(){
+  public createForm(): void {
     this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
@@ -46,7 +46,7 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  public onSubmit(): void {
     this.signupRequestPayload.email = this.signupForm.get('email').value;
     this.signupRequestPayload.username = this.signupForm.get('username').value;
     this.signupRequestPayload.password = this.signupForm.get('password').value;

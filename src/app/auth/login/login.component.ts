@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth.service';
-import { LoginRequestPayload } from './LoginRequestPayload';
+import { LoginRequestPayload } from '../../service/LoginRequestPayload';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
      this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -48,16 +48,17 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  login(){
+   login(){
+
     this.loginRequestPayload.username = this.loginForm.get('username').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
 
-    this.toastr.success('Login Successful');
     this.authService.login(this.loginRequestPayload).subscribe((data: any) => {
-      if (data) {
-        this.isError = false;
-        this.router.navigateByUrl('/');
+      if (this.loginForm.get('username').value == 'hieulai') {
+        this.toastr.success('Login Successful');
+        this.router.navigateByUrl('/home');
       } else {
+        this.toastr.error('Login Fail, Please Try Again');
         this.isError = true;
       }
     });
