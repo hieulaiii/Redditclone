@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/shared/auth.service';
+import { CreatePostPayload } from 'src/app/service/createPostPayload';
 
 @Component({
   selector: 'app-create-post',
@@ -9,17 +12,39 @@ import { Route, Router } from '@angular/router';
 })
 export class CreatePostComponent implements OnInit {
   public createPostForm: any
+  public createPostPayload: CreatePostPayload
 
-  constructor(private formBuilder: FormBuilder ,private router: Router){}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private toastr: ToastrService
+    ) {
+    this.createPostPayload = {
+      title: '',
+      url: ''
+    }
+  }
 
   ngOnInit(): void {
     this.createPostForm = this.formBuilder.group({
-      postName: [''],
-      url: [''],
-      subredditName: ['']
+      title: ['', Validators.required],
+      url: ['', Validators.required],
     })
   }
 
+  createPost(){
+    this.createPostPayload.title = this.createPostForm.get('title').value
+    this.createPostPayload.url = this.createPostForm.get('url').value
+
+    this.authService.createPost(this.createPostPayload)
+    .subscribe(() => {
+      this.toastr.success('Let see your post','Successfully');
+      this.router.navigateByUrl('/home')
+    }
+      // this.toastr.error('Sign up Fail', 'Try Again');
+    );
+  }
 
   discardPost(){
     this.router.navigateByUrl('/home')

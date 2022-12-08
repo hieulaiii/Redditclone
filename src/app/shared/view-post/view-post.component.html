@@ -1,55 +1,53 @@
-<div class="container">
-  <div class="row">
-    <hr />
-    <div class="col-md-9">
-      <div class="row post">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-11">
-          <span>
-            <span class="subreddit-text"><a class="post-url" href="">Lai Hieu's Post</a></span>
-            <span> . Posted
-              <span> 2003 </span>
-              by
-              <a class="username" href="">Hieu Lai</a>
+
+  <div class="container">
+    <div class="row">
+      <hr />
+      <div class="col-md-9">
+        <div class="row post">
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-11">
+            <span>
+              <span class="subreddit-text"><a class="post-url" href="">Lai Hieu's Post</a></span>
+              <span> . Posted
+                <span> 2003 </span>
+                by
+                <a class="username" href="">Hieu Lai</a>
+              </span>
             </span>
-          </span>
-          <hr />
-          <a routerLink="post.url" class="post-title">My life</a>
-          <div>
-            <p class="post-text">When i was 6 years old, ...........................
-              When i was 6 years old, ...........................
-              When i was 6 years old, ...........................
-              When i was 6 years old, ...........................
-              When i was 6 years old, ...........................
-            </p>
-          </div>
-          <div class="post-comment">
-            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
-              <div class="form-group">
-                <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
-              </div>
-              <button type="submit" class="login float-right">Comment</button>
-            </form>
-          </div>
-          <div style="margin-top: 60px;">
-            <div class="comment">
-              <div class="username">
-                <a routerLink="/user/comment.username"></a>
-              </div>
-              <div>
-                <p></p>
-              </div>
-              <b></b>
-            </div>
             <hr />
+            <a routerLink="post.url" class="post-title">{{ title }}</a>
+            <div>
+              <p class="post-text">{{ description }}</p>
+            </div>
+            <!-- <div class="post-comment">
+              <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+                <div class="form-group">
+                  <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+                </div>
+                <button type="submit" class="login float-right">Comment</button>
+              </form>
+            </div> -->
+            <button type="submit" (click)="clearSubReddit()" class="login float-right">Clear</button>
+            <div style="margin-top: 60px;">
+              <div class="comment">
+                <div class="username">
+                  <a routerLink="/user/comment.username"></a>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <b></b>
+              </div>
+              <hr />
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <app-side-bar></app-side-bar>
-      <app-subreddit-side-bar></app-subreddit-side-bar>
-    </div>
   </div>
+
+<div class="col-md-3">
+  <app-side-bar></app-side-bar>
+  <app-subreddit-side-bar></app-subreddit-side-bar>
 </div>

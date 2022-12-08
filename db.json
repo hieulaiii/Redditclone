@@ -1,32 +1,24 @@
 {
-  "posts": [
+  "signups": [
     {
       "id": 1,
       "email": "laihieu1@gmail.com",
       "username": "laihieu1",
       "password": "laihieu1"
-    },
-    {
-      "id": 2,
-      "email": "laihieu2@gmail.com",
-      "username": "laihieu2",
-      "password": "laihieu2"
-    },
-    {
-      "id": 3,
-      "email": "laihieu3@gmail.com",
-      "username": "laihieu3",
-      "password": "laihieu3"
     }
   ],
-  "comments": [
+  "posts": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "",
+      "url": ""
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "subreddits": [
+    {
+      "id": 1,
+      "title": "",
+      "description": ""
+    }
+  ]
 }

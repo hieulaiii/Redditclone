@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
   selector: 'app-subreddit-side-bar',
@@ -7,10 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./subreddit-side-bar.component.css']
 })
 export class SubredditSideBarComponent implements OnInit{
-  constructor(private router: Router){}
+  public title = ''
+  public url = ''
+
+  constructor(private router: Router, private authService: AuthService){}
 
   ngOnInit(): void {
+    this.authService.getPost().subscribe(posts =>{
+      posts.forEach((post: any) => {
+        this.title = post.title
+        this.url = post.url
+      })
+    })
 
+  }
+
+  clearAll(){
+    this.title = ''
+    this.url = ''
   }
 
   viewPost(){

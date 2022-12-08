@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { CreateRedditPayload } from 'src/app/service/creatSubRedditPayload';
 
 @Component({
@@ -12,7 +14,10 @@ export class CreateSubredditComponent implements OnInit {
   public createSubredditForm: any;
   public createRedditPayload: CreateRedditPayload;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private toastr: ToastrService,
+    private authService: AuthService) {
     this.createRedditPayload = {
       title: '',
       description: ''
@@ -31,8 +36,16 @@ export class CreateSubredditComponent implements OnInit {
   }
 
   createSubreddit() {
-    this.createRedditPayload = this.createSubredditForm.get('title').value;
-    this.createRedditPayload = this.createSubredditForm.get('description').value;
+    this.createRedditPayload.title = this.createSubredditForm.get('title').value;
+    this.createRedditPayload.description = this.createSubredditForm.get('description').value;
+
+    this.authService.createReddit(this.createRedditPayload)
+    .subscribe(() => {
+      this.toastr.success('Let see your post','Post subReddit Success');
+      this.router.navigateByUrl('/viewPost')
+    }, () => {
+      this.toastr.error('Sign up Fail', 'Try Again');
+    });
 
   }
 }
