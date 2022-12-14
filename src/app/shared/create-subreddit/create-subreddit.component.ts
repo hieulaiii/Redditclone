@@ -19,6 +19,7 @@ export class CreateSubredditComponent implements OnInit {
     private toastr: ToastrService,
     private authService: AuthService) {
     this.createRedditPayload = {
+      name: '',
       title: '',
       description: ''
     }
@@ -26,6 +27,7 @@ export class CreateSubredditComponent implements OnInit {
 
   ngOnInit() {
     this.createSubredditForm = this.formBuilder.group({
+      name: [''],
       title: [''],
       description: ['']
     })
@@ -36,12 +38,13 @@ export class CreateSubredditComponent implements OnInit {
   }
 
   createSubreddit() {
+    this.createRedditPayload.name = this.createSubredditForm.get('name').value;
     this.createRedditPayload.title = this.createSubredditForm.get('title').value;
     this.createRedditPayload.description = this.createSubredditForm.get('description').value;
 
     this.authService.createReddit(this.createRedditPayload)
     .subscribe(() => {
-      this.toastr.success('Let see your post','Post subReddit Success');
+      this.toastr.success('Let see your post','Post subReddit Successfully');
       this.router.navigateByUrl('/viewPost')
     }, () => {
       this.toastr.error('Sign up Fail', 'Try Again');

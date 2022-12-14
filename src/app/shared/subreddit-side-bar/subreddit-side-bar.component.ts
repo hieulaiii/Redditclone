@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/shared/auth.service';
@@ -10,22 +11,19 @@ import { AuthService } from 'src/app/auth/shared/auth.service';
 export class SubredditSideBarComponent implements OnInit{
   public title = ''
   public url = ''
+  public posts: any
+  public selectedPost = ''
 
   constructor(private router: Router, private authService: AuthService){}
 
   ngOnInit(): void {
     this.authService.getPost().subscribe(posts =>{
-      posts.forEach((post: any) => {
-        this.title = post.title
-        this.url = post.url
-      })
+      this.posts = posts
     })
-
   }
 
-  clearAll(){
-    this.title = ''
-    this.url = ''
+  clear(){
+    this.posts.pop()
   }
 
   viewPost(){

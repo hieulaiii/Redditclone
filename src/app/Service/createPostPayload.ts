@@ -1,4 +1,5 @@
 export interface CreatePostPayload {
     title: '',
-    url: ''
+    url: '',
+    description: ''
   }

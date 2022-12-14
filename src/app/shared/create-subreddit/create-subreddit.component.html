@@ -1,17 +1,30 @@
 <div class="container">
     <div class="create-subreddit-container">
-      <form class="post-form" [formGroup]="createSubredditForm">
+      <form class="post-form" [formGroup]="createSubredditForm" (ngSubmit)="createSubreddit()">
         <div class="form-group">
           <div class="create-subreddit-heading">Create Subreddit</div>
           <hr />
-          <input type="text" formControlName="title" class="form-control" style="margin-top: 5px"
-            placeholder="Title">
-          <textarea type="text" formControlName="description" style="width: 100%; margin-top: 5px"
-            placeholder="Description"></textarea>
+          <input type="text" formControlName="name" class="form-control" style="margin-top: 5px"
+            placeholder="Name">
+          <textarea type="text" formControlName="title" style="width: 100%; margin-top: 5px"
+            placeholder="Title"></textarea>
+            <editor formControlName="description" [init]="{
+              height: 500,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
+                alignleft aligncenter alignright alignjustify | \
+                bullist numlist outdent indent | removeformat | help'
+            }"></editor>
           <div>
             <div style="margin-top: 5px" class="float-right">
               <button (click)="discard()" class="btnDiscard">Discard</button>
-              <button class="btnCreateSubreddit" (click)="createSubreddit()">Create</button>
+              <button type="submit" class="btnCreateSubreddit">Create</button>
             </div>
           </div>
         </div>

@@ -22,31 +22,33 @@ export class CreatePostComponent implements OnInit {
     ) {
     this.createPostPayload = {
       title: '',
-      url: ''
+      url: '',
+      description: ''
     }
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.createPostForm = this.formBuilder.group({
       title: ['', Validators.required],
       url: ['', Validators.required],
+      description: ['', Validators.required]
     })
   }
 
-  createPost(){
+  public discardPost(){
+    this.router.navigateByUrl('/home')
+  }
+
+  public createPost(){
     this.createPostPayload.title = this.createPostForm.get('title').value
     this.createPostPayload.url = this.createPostForm.get('url').value
 
     this.authService.createPost(this.createPostPayload)
     .subscribe(() => {
-      this.toastr.success('Let see your post','Successfully');
+      this.toastr.success('Successfully');
       this.router.navigateByUrl('/home')
-    }
-      // this.toastr.error('Sign up Fail', 'Try Again');
-    );
-  }
-
-  discardPost(){
-    this.router.navigateByUrl('/home')
+    }, () => {
+      this.toastr.error('Sign up Fail', 'Try Again');
+    });
   }
 }

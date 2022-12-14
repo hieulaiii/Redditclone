@@ -17,18 +17,19 @@ export class AuthService {
     })
   }
 
-  login(loginRequestPayload: any) {
-    // throw new Error('Method not implemented.');
-    return this.http.post('http://localhost:3000/signups', loginRequestPayload);
-  }
-
   constructor(private http: HttpClient) { }
 
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
     return this.http.post('http://localhost:3000/signups', signupRequestPayload);
   }
-  createReddit(createRedditPayload: CreateRedditPayload): Observable<any> {
-    return this.http.post('http://localhost:3000/subreddits', createRedditPayload);
+
+  login(loginRequestPayload: any) {
+    // throw new Error('Method not implemented.');
+    return this.http.get('https://dummyjson.com/users', loginRequestPayload);
+  }
+
+  createReddit(createRedditPayload: CreateRedditPayload): Observable<CreateRedditPayload> {
+    return this.http.post<CreateRedditPayload>('http://localhost:3000/subreddits', createRedditPayload);
   }
 
   getSubReddit(): Observable<any>{

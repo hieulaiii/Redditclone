@@ -54,7 +54,10 @@ export class LoginComponent implements OnInit {
     this.loginRequestPayload.password = this.loginForm.get('password').value;
 
     this.authService.login(this.loginRequestPayload).subscribe((data: any) => {
-      if (this.loginForm.get('username').value == 'hieulai') {
+      console.log(data.users[0].username);
+      console.log(data.users[0].password);
+
+      if (this.loginForm.get('username').value == data.users[0].username && this.loginForm.get('password').value == data.users[0].password) {
         this.toastr.success('Login Successful');
         this.router.navigateByUrl('/home');
       } else {
@@ -63,7 +66,5 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-
 }
 

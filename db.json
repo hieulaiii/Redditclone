@@ -2,21 +2,35 @@
   "signups": [
     {
       "id": 1,
-      "email": "laihieu1@gmail.com",
-      "username": "laihieu1",
-      "password": "laihieu1"
+      "email": "",
+      "username": "",
+      "password": ""
+    },
+    {
+      "email": "adas",
+      "username": "fsdf",
+      "password": "sfsd",
+      "id": 2
+    },
+    {
+      "email": "adas",
+      "username": "hieulai",
+      "password": "sfsd",
+      "id": 3
     }
   ],
   "posts": [
     {
       "id": 1,
       "title": "",
-      "url": ""
+      "url": "",
+      "description": ""
     }
   ],
   "subreddits": [
     {
       "id": 1,
+      "name": "",
       "title": "",
       "description": ""
     }

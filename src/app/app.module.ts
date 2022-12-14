@@ -18,6 +18,7 @@ import { VoteButtonComponent } from './shared/vote-button/vote-button.component'
 import { CreateSubredditComponent } from './shared/create-subreddit/create-subreddit.component';
 import { CreatePostComponent } from './shared/create-post/create-post.component';
 import { ViewPostComponent } from './shared/view-post/view-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ViewPostComponent } from './shared/view-post/view-post.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
