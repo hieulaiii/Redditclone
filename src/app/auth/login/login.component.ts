@@ -49,10 +49,6 @@ export class LoginComponent implements OnInit {
   }
 
    login(){
-
-    this.loginRequestPayload.username = this.loginForm.get('username').value;
-    this.loginRequestPayload.password = this.loginForm.get('password').value;
-
     this.authService.login().subscribe((data: any) => {
 
       console.log(data);
