@@ -53,11 +53,17 @@ export class LoginComponent implements OnInit {
     this.loginRequestPayload.username = this.loginForm.get('username').value;
     this.loginRequestPayload.password = this.loginForm.get('password').value;
 
-    this.authService.login(this.loginRequestPayload).subscribe((data: any) => {
-      console.log(data.users[0].username);
-      console.log(data.users[0].password);
+    this.authService.login().subscribe((data: any) => {
 
-      if (this.loginForm.get('username').value == data.users[0].username && this.loginForm.get('password').value == data.users[0].password) {
+      console.log(data);
+
+
+      const result = data.users.filter((obj: any) => {
+        return obj.username === this.loginForm.get('username').value &&  obj.password === this.loginForm.get('password').value
+      });
+
+
+      if (result[0]) {
         this.toastr.success('Login Successful');
         this.router.navigateByUrl('/home');
       } else {
